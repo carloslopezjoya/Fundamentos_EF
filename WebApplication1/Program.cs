@@ -20,7 +20,10 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/dbconexion", async ([FromServices] TareasContext dbContext) =>
     {
         dbContext.Database.EnsureCreated();
-        return Results.Ok("Base de datos en memoria: " + dbContext.Database.IsInMemory());
+        return Results.Ok("Base de datos en memoria: " + dbContext.Database.IsInMemory()+ " Base de datos en server: " +dbContext.Database.IsSqlServer());
+        
+
+
     });
 
 // Configure the HTTP request pipeline.
