@@ -18,6 +18,7 @@ namespace WebApplication1
                 categoria.HasKey(p => p.CategoriaId);
                 categoria.Property(p=>p.Nombre).HasColumnType("varchar").IsRequired().HasMaxLength(150);
                 categoria.Property(p => p.Descripcion).HasColumnType("varchar");
+                categoria.Property(p => p.Peso).HasColumnType("int");
             });
 
             modelBuilder.Entity<Tarea>(tarea =>
@@ -30,6 +31,7 @@ namespace WebApplication1
                 tarea.Property(p => p.FechaCreacion).HasColumnType("Date");
                 tarea.Ignore(p => p.Resumen);
                 tarea.Property(p => p.Prioridad);
+                tarea.Property(p => p.Pendiente).HasColumnType("varchar").HasMaxLength(300);
                 //tarea.Property(p => p.Prioridad).HasColumnType("varchar").HasMaxLength(15).HasConversion(                        
                 //p => p.ToString(),
                 //v => (Prioridad)Enum.Parse(typeof(Prioridad), v));
