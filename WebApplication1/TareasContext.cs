@@ -29,10 +29,10 @@ namespace WebApplication1
                 categoria.ToTable("Categoria");
                 categoria.HasKey(p => p.CategoriaId);
                 categoria.Property(p=>p.Nombre).HasColumnType("varchar").IsRequired().HasMaxLength(150);
-                categoria.Property(p => p.Descripcion).HasColumnType("varchar").IsRequired(false);
+                categoria.Property(p => p.Descripcion).HasColumnType("varchar").HasMaxLength(150).IsRequired(false);
                 categoria.Property(p => p.Peso).HasColumnType("int");
 
-                categoria.HasData(categoriasInit);// agregar datos
+                categoria.HasData(categoriasInit);// agregar datoss
             });
 
             List<Tarea> tareasInit = new List<Tarea>();
